@@ -6,145 +6,6 @@
 
 using namespace ariel;
 using namespace std;
-/////////////////////////////////////////////Empty constructor tests////////////////////////////////////////////////////
-League tournament{};
-
-TEST_CASE ("Create random groups with an empty constructor and print for checking") {
-    cout << "test 1" << endl;
-    size_t i = 1;
-    for (const auto &t: tournament.getTeams()) {
-        cout << "------------------------------------------" << endl;
-        cout << "Team number: " << i++ << endl;
-        cout << "Name: " << t.name() << " | Talent Level: " << t.talentLevel() << endl;
-    }
-
-}
-
-TEST_CASE ("Checking the schedule->if printing good") {
-    CHECK_NOTHROW(Schedule schedule{tournament});
-}
-
-////////////////////////////////A constructor that receives an external set of 20 sets//////////////////////////////////
-
-TEST_CASE ("Test of a constructor with 20 sets ") {
-    vector<Team> teams;
-    string one = "a";
-    Team a{one, 0.1};
-    teams.push_back(a);
-    string two = "b";
-    Team b{two, 0.15};
-    teams.push_back(b);
-    string three = "c";
-    Team c{three, 0.12};
-    teams.push_back(c);
-    string four = "d";
-    Team d{four, 0.21};
-    teams.push_back(d);
-    string five = "e";
-    Team e{five, 0.14};
-    teams.push_back(e);
-    string six6 = "f";
-    Team f{six6, 0.51};
-    teams.push_back(f);
-    string seven = "g";
-    Team g{seven, 0.61};
-    teams.push_back(g);
-    string eight = "h";
-    Team h{eight, 0.11};
-    teams.push_back(h);
-    string nine = "i";
-    Team i{nine, 0.14};
-    teams.push_back(i);
-    string ten = "j";
-    Team j{ten, 0.21};
-    teams.push_back(j);
-
-    string eleven = "k";
-    Team k{eleven, 0.22};
-    teams.push_back(k);
-    string twelve = "l";
-    Team l{twelve, 0.24};
-    teams.push_back(l);
-    string thirteen = "m";
-    Team m{thirteen, 0.35};
-    teams.push_back(m);
-    string fourteen = "n";
-    Team n{fourteen, 0.55};
-    teams.push_back(n);
-    string fifteen = "o";
-    Team o{fifteen, 0.84};
-    teams.push_back(o);
-    string sixteen = "p";
-    Team p{sixteen, 0.1};
-    teams.push_back(p);
-    string seventeen = "q";
-    Team q{seventeen, 0.3};
-    teams.push_back(q);
-    string eighteen = "r";
-    Team r{eighteen, 0.2};
-    teams.push_back(r);
-    string nineteen = "s";
-    Team s{nineteen, 0.5};
-    teams.push_back(s);
-    string twenty = "t";
-    Team t{twenty, 0.4};
-    teams.push_back(t);
-    League tournament_full{teams};
-
-    cout << "test 2" << endl;
-    size_t w = 1;
-    for (const auto &t: tournament_full.getTeams()) {
-        cout << "------------------------------------------" << endl;
-        cout << "Team number: " << w++ << endl;
-        cout << "Name: " << t.name() << " | Talent Level: " << t.talentLevel() << endl;
-    }
-    CHECK_NOTHROW(Schedule schedule{tournament_full});
-}
-//////////////////////////A constructor that receives an external set of * less * than 20 sets//////////////////////////
-
-TEST_CASE ("Test of a constructor with less than 20 sets ") {
-    vector<Team> teams;
-    string one = "a";
-    Team a{one, 0.1};
-    teams.push_back(a);
-    string two = "b";
-    Team b{two, 0.15};
-    teams.push_back(b);
-    string three = "c";
-    Team c{three, 0.12};
-    teams.push_back(c);
-    string four = "d";
-    Team d{four, 0.21};
-    teams.push_back(d);
-    string five = "e";
-    Team e{five, 0.14};
-    teams.push_back(e);
-    string six6 = "f";
-    Team f{six6, 0.51};
-    teams.push_back(f);
-    string seven = "g";
-    Team g{seven, 0.61};
-    teams.push_back(g);
-    string eight = "h";
-    Team h{eight, 0.11};
-    teams.push_back(h);
-    string nine = "i";
-    Team i{nine, 0.14};
-    teams.push_back(i);
-    string ten = "j";
-    Team j{ten, 0.21};
-    teams.push_back(j);
-
-    League tournament_full{teams};
-    cout << "test 3" << endl;
-    size_t w = 1;
-    for (const auto &t: tournament_full.getTeams()) {
-        cout << "------------------------------------------" << endl;
-        cout << "Team number: " << w++ << endl;
-        cout << "Name: " << t.name() << " | Talent Level: " << t.talentLevel() << endl;
-    }
-    CHECK_NOTHROW(Schedule schedule{tournament_full});
-}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 TEST_CASE ("The property of a vector is greater than 20 ") {
     vector<Team> teams;
@@ -290,4 +151,143 @@ TEST_CASE("check the win function, **illegal talent level**"){
     CHECK_THROWS(game3.Win());
     game3.setOut_score(0);
     CHECK_THROWS(game3.Win());
+}
+/////////////////////////////////////////////Empty constructor tests////////////////////////////////////////////////////
+League tournament{};
+
+TEST_CASE ("Create random groups with an empty constructor and print for checking") {
+    cout << "test 1" << endl;
+    size_t i = 1;
+    for (auto &t: tournament.getTeams()) {
+        cout << "------------------------------------------" << endl;
+        cout << "Team number: " << i++ << endl;
+        cout << "Name: " << t.name() << " | Talent Level: " << t.talentLevel() << endl;
+    }
+
+}
+
+TEST_CASE ("Checking the schedule->if printing good") {
+    CHECK_NOTHROW(Schedule schedule{tournament});
+}
+
+////////////////////////////////A constructor that receives an external set of 20 sets//////////////////////////////////
+
+TEST_CASE ("Test of a constructor with 20 sets ") {
+    vector<Team> teams;
+    string one = "a";
+    Team a{one, 0.1};
+    teams.push_back(a);
+    string two = "b";
+    Team b{two, 0.15};
+    teams.push_back(b);
+    string three = "c";
+    Team c{three, 0.12};
+    teams.push_back(c);
+    string four = "d";
+    Team d{four, 0.21};
+    teams.push_back(d);
+    string five = "e";
+    Team e{five, 0.14};
+    teams.push_back(e);
+    string six6 = "f";
+    Team f{six6, 0.51};
+    teams.push_back(f);
+    string seven = "g";
+    Team g{seven, 0.61};
+    teams.push_back(g);
+    string eight = "h";
+    Team h{eight, 0.11};
+    teams.push_back(h);
+    string nine = "i";
+    Team i{nine, 0.14};
+    teams.push_back(i);
+    string ten = "j";
+    Team j{ten, 0.21};
+    teams.push_back(j);
+
+    string eleven = "k";
+    Team k{eleven, 0.22};
+    teams.push_back(k);
+    string twelve = "l";
+    Team l{twelve, 0.24};
+    teams.push_back(l);
+    string thirteen = "m";
+    Team m{thirteen, 0.35};
+    teams.push_back(m);
+    string fourteen = "n";
+    Team n{fourteen, 0.55};
+    teams.push_back(n);
+    string fifteen = "o";
+    Team o{fifteen, 0.84};
+    teams.push_back(o);
+    string sixteen = "p";
+    Team p{sixteen, 0.1};
+    teams.push_back(p);
+    string seventeen = "q";
+    Team q{seventeen, 0.3};
+    teams.push_back(q);
+    string eighteen = "r";
+    Team r{eighteen, 0.2};
+    teams.push_back(r);
+    string nineteen = "s";
+    Team s{nineteen, 0.5};
+    teams.push_back(s);
+    string twenty = "t";
+    Team t{twenty, 0.4};
+    teams.push_back(t);
+    League tournament_full{teams};
+
+    cout << "test 2" << endl;
+    size_t w = 1;
+    for (auto &t: tournament_full.getTeams()) {
+        cout << "------------------------------------------" << endl;
+        cout << "Team number: " << w++ << endl;
+        cout << "Name: " << t.name() << " | Talent Level: " << t.talentLevel() << endl;
+    }
+    CHECK_NOTHROW(Schedule schedule{tournament_full});
+}
+//////////////////////////A constructor that receives an external set of * less * than 20 sets//////////////////////////
+
+TEST_CASE ("Test of a constructor with less than 20 sets ") {
+    vector<Team> teams;
+    string one = "a";
+    Team a{one, 0.1};
+    teams.push_back(a);
+    string two = "b";
+    Team b{two, 0.15};
+    teams.push_back(b);
+    string three = "c";
+    Team c{three, 0.12};
+    teams.push_back(c);
+    string four = "d";
+    Team d{four, 0.21};
+    teams.push_back(d);
+    string five = "e";
+    Team e{five, 0.14};
+    teams.push_back(e);
+    string six6 = "f";
+    Team f{six6, 0.51};
+    teams.push_back(f);
+    string seven = "g";
+    Team g{seven, 0.61};
+    teams.push_back(g);
+    string eight = "h";
+    Team h{eight, 0.11};
+    teams.push_back(h);
+    string nine = "i";
+    Team i{nine, 0.14};
+    teams.push_back(i);
+    string ten = "j";
+    Team j{ten, 0.21};
+    teams.push_back(j);
+
+    League tournament_full{teams};
+    cout << "test 3" << endl;
+    size_t w = 1;
+    for (auto &t: tournament_full.getTeams()) {
+        cout << "------------------------------------------" << endl;
+        cout << "Team number: " << w++ << endl;
+        cout << "Name: " << t.name() << " | Talent Level: " << t.talentLevel() << endl;
+    }
+    CHECK_NOTHROW(Schedule schedule{tournament_full});
 }
