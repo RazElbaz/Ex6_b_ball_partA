@@ -6,6 +6,7 @@
 
 using namespace ariel;
 using namespace std;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 TEST_CASE ("The property of a vector is greater than 20 ") {
     vector<Team> teams;
@@ -96,6 +97,10 @@ TEST_CASE("A group with an illegal talent level-> higher than 1"){
     CHECK_THROWS(Team (seven, 100000));
     string eight = "h";
     CHECK_THROWS(Team f(eight, 1.01));
+    string nine = "i";
+    CHECK_THROWS(Team i(nine, 1.11));
+    string ten = "j";
+    CHECK_THROWS(Team j(ten, 1.19));
 }
 TEST_CASE("A group with an illegal talent level-> less than 0"){
     string one = "a";
@@ -114,6 +119,10 @@ TEST_CASE("A group with an illegal talent level-> less than 0"){
     CHECK_THROWS(Team (seven, -100000));
     string eight = "h";
     CHECK_THROWS(Team f(eight, -0.01));
+    string nine = "i";
+    CHECK_THROWS(Team i(nine, -0.11));
+    string ten = "j";
+    CHECK_THROWS(Team j(ten, -0.19));
 }
 TEST_CASE("check the win function, **illegal talent level**"){
     string one = "a";
